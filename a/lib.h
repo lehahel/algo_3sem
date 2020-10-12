@@ -4,8 +4,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <memory>
 
-using namespace std;
+std::shared_ptr<std::vector<int>> calculate_z_function(const std::string& s);
+std::shared_ptr<std::vector<int>> find_substrings(const std::string& pattern, const std::string& text);
 
-void calculate_z_function(const string& s, vector<int>& res);
-void find_substrings(const string& pattern, const string& text, vector<int>& res);
+const std::string union_symbol = "#";
+const std::string space_symbol = " ";

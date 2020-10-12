@@ -6,11 +6,9 @@ int main() {
     string pattern, text;
     cin >> pattern >> text;
     vector<int> res;
-    find_substrings(pattern, text, res);
+    vector<int> res = *find_substrings(pattern, text);
     for (int x : res) {
-        cout << x << " ";
+        cout << x << space_symbol;
     }
-    cout << endl;
-    //system("pause");
     return 0;
 }
