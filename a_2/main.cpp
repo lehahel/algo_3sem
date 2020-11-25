@@ -6,21 +6,19 @@ struct CPoint {
     long long y;
 };
 
-typedef std::vector<std::pair<CPoint, CPoint>> river_vector;
-
 inline long long oriented_area(CPoint pt1, CPoint pt2, CPoint pt3) {
     return (pt2.x - pt1.x) * (pt3.y - pt1.y) - (pt2.y - pt1.y) * (pt3.x - pt1.x);
 }
 
 
-inline bool projection_intersection(int x1, int x2, int x3, int x4) {
-	if (x1 > x2) {
-        std::swap(x1, x2);
+inline bool projection_intersection(int start1, int end1, int start2, int end2) {
+	if (start1 > end1) {
+        std::swap(start1, end1);
     }
-	if (x3 > x4) {
-        std::swap(x3, x4);
+	if (start2 > end2) {
+        std::swap(start2, end2);
     }
-	return std::max(x1, x3) <= std::min(x2, x4);
+	return std::max(start1, start2) <= std::min(end1, end2);
 }
 
 bool are_crossed(CPoint pt1, CPoint pt2, CPoint pt3, CPoint pt4) {
@@ -30,7 +28,7 @@ bool are_crossed(CPoint pt1, CPoint pt2, CPoint pt3, CPoint pt4) {
 		&& oriented_area(pt3, pt4, pt1) * oriented_area(pt3, pt4, pt2) <= 0;
 }
 
-size_t build_bridge(CPoint start, CPoint end, const river_vector& rivers) {
+size_t build_bridge(CPoint start, CPoint end, const std::vector<std::pair<CPoint, CPoint>>& rivers) {
     size_t res = 0;
     for (std::pair<CPoint, CPoint> river : rivers) {
         if (are_crossed(start, end, river.first, river.second)) {
@@ -47,7 +45,7 @@ int main() {
     
     size_t n;
     std::cin >> n;
-    river_vector rivers(n);
+    std::vector<std::pair<CPoint, CPoint>> rivers(n);
     
     for (int i = 0; i < n; ++i) {
         std::cin >> rivers[i].first.x 
