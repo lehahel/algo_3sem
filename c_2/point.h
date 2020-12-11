@@ -1,11 +1,8 @@
 #pragma once
-
-#include <iostream>
-#include <vector>
-#include <algorithm>
 #include <cmath>
-#include <set>
-#include "const.h"
+
+const double DOUBLE_EPS = 1e-6;
+const double DOUBLE_INF = 1e9;
 
 struct CPoint {
     double x;
@@ -23,13 +20,5 @@ struct CPoint {
 
 bool operator<(const CPoint &left, const CPoint &right);
 
-struct CFacet {
-    int first;
-    int second;
-    int third;
-
-    CFacet(int first, int second, int third);
-    void normalize();
-};
-
-bool operator<(const CFacet& left, const CFacet& right);
+double turn(const CPoint *point1, const CPoint *point2, const CPoint *pt3);
+double time(const CPoint *point1, const CPoint *point2, const CPoint *pt3);
