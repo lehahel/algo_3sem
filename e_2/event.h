@@ -2,17 +2,17 @@
 
 #include <algorithm>
 
-enum class CEventType {
+enum class CScanLineEventType {
     SG_START,
     SG_END
 };
 
-struct CSLEvent {
-    CSLEvent() = delete;
-    CSLEvent(long long x, CEventType type, size_t id);
+struct CScanLineEvent {
+    CScanLineEvent() = delete;
+    CScanLineEvent(long long x, CScanLineEventType type, size_t id);
     long long x;
     size_t id;
-    CEventType type;
+    CScanLineEventType type;
 };
 
-bool event_cmp(const CSLEvent& left, const CSLEvent& right);
+bool event_cmp(const CScanLineEvent& left, const CScanLineEvent& right);

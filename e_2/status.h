@@ -5,5 +5,5 @@
 
 typedef std::set<CSegment, SegmentCmp> Status;
 
-Status::iterator prev_it(const Status& status, Status::iterator it);
-Status::iterator next_it(const Status& status, Status::iterator it);
+Status::iterator prev_it(const Status &status, Status::iterator it);
+Status::iterator next_it(const Status &status, Status::iterator it);

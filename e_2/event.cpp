@@ -1,10 +1,12 @@
 #include "event.h"
 
-CSLEvent::CSLEvent(long long x, CEventType type, size_t id) : x(x), type(type), id(id) {};
+CScanLineEvent::CScanLineEvent(long long x, CScanLineEventType type, size_t id)
+    : x(x), type(type), id(id){};
 
-bool event_cmp(const CSLEvent& left, const CSLEvent& right) {
-    if (left.x == right.x) {
-        return left.type == CEventType::SG_START && right.type == CEventType::SG_END;
-    }
-    return left.x < right.x;
+bool event_cmp(const CScanLineEvent &left, const CScanLineEvent &right) {
+  if (left.x == right.x) {
+    return left.type == CScanLineEventType::SG_START &&
+           right.type == CScanLineEventType::SG_END;
+  }
+  return left.x < right.x;
 }
