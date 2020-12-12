@@ -1,6 +1,6 @@
-#include "geometry.h"
+#include "interchecker.h"
 
-bool contains_zero(const CShape &shape) {
+bool CIntersectionChecker::contains_zero(const CShape &shape) {
   std::vector<CPoint> vert = shape.get_vertices();
 
   bool result = false;
@@ -19,7 +19,7 @@ bool contains_zero(const CShape &shape) {
   return result;
 }
 
-bool intersect(const CShape &left, const CShape &right) {
+bool CIntersectionChecker::intersect(const CShape &left, const CShape &right) {
   CShape shape = left;
   shape += (-right);
   return contains_zero(shape);

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "point.h"
 #include "shape.h"
-#include "geometry.h"
+#include "interchecker.h"
 
 const std::string YES = "YES";
 const std::string NO = "NO";
@@ -23,7 +23,7 @@ int main() {
   }
   CShape shape2(shape_v);
 
-  std::cout << (intersect(shape1, shape2) ? YES : NO) << std::endl;
+  std::cout << (CIntersectionChecker().intersect(shape1, shape2) ? YES : NO) << std::endl;
 
   return 0;
 }
