@@ -2,7 +2,7 @@
 
 #include "point.h"
 
-const long double EPSILON = 0.0000001;
+const long double EPSILON = 1e-9;
 
 struct CSegment {
   CSegment() = default;
